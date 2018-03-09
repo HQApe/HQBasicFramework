@@ -8,9 +8,13 @@
 
 #import "HQPresentViewController.h"
 #import <RTRootNavigationController.h>
+#import "HQTrackManager.h"
+
+
 #import "HQPushViewController.h"
 #import "HQPresentDetailViewController.h"
 #import "HQNavigationController.h"
+
 
 @interface HQPresentViewController ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -19,6 +23,33 @@
 @end
 
 @implementation HQPresentViewController
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [HQTrackManager trackPageViewBeginWithKey:@"present" name:@"Present"];
+    [super viewDidAppear:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [HQTrackManager trackPageViewEndWithKey:@"present" name:@"Present"];
+    [super viewDidDisappear:animated];
+}
+
+- (void)dealloc
+{
+    
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

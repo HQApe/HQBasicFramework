@@ -9,6 +9,7 @@
 #import "HQPushViewController.h"
 #import <RTRootNavigationController.h>
 #import "HQPushDetailViewController.h"
+#import "HQTrackManager.h"
 
 @interface HQPushViewController ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -17,6 +18,33 @@
 @end
 
 @implementation HQPushViewController
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [HQTrackManager trackPageViewBeginWithKey:@"push" name:@"Push"];
+    [super viewDidAppear:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [HQTrackManager trackPageViewEndWithKey:@"push" name:@"Push"];
+    [super viewDidDisappear:animated];
+}
+
+- (void)dealloc
+{
+    
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

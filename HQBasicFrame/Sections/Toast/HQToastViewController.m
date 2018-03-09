@@ -8,7 +8,7 @@
 
 #import "HQToastViewController.h"
 #import <Toast.h>
-#import <FLAnimatedImage.h>
+#import "HQTrackManager.h"
 
 #import "UIView+HQ_Toast.h"
 
@@ -20,21 +20,45 @@
 
 @implementation HQToastViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    self.view.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:self.tableView];
-}
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [HQTrackManager trackPageViewBeginWithKey:@"toast" name:@"Toast"];
+    [super viewDidAppear:animated];
     
     [self.view showLoadingHUD];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.view hideLoadingHUD];
     });
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [HQTrackManager trackPageViewEndWithKey:@"toast" name:@"Toast"];
+    [super viewDidDisappear:animated];
+}
+
+- (void)dealloc
+{
+    
+}
+
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+    self.view.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:self.tableView];
 }
 
 #pragma mark - UITableViewDataSource
@@ -89,16 +113,19 @@
         case 0:
         {
             [self.view makeToast:@"Top Toast" duration:1.0 position:CSToastPositionTop];
+            [HQTrackManager trackEventWithKey:@"clickTop" name:@"在上方显示Toast"];
         }
             break;
         case 1:
         {
             [self.view makeToast:@"Center Toast" duration:1.0 position:CSToastPositionCenter];
+            [HQTrackManager trackEventWithKey:@"clickCenter" name:@"在中间显示Toast"];
         }
             break;
         case 2:
         {
             [self.view makeToast:@"Bottom Toast" duration:1.0 position:CSToastPositionBottom];
+            [HQTrackManager trackEventWithKey:@"clickBottom" name:@"在下方显示Toast"];
         }
             break;
         case 3:
@@ -113,6 +140,7 @@
             break;
         case 5:
         {
+            [HQTrackManager trackEventWithKey:@"clickLoading" name:@"点击了加载动画"];
             [self.view showLoadingHUD];
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 [self.view hideLoadingHUD];

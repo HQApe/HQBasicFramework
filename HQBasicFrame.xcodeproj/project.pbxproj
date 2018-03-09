@@ -56,6 +56,7 @@
 		67B29E0B201EC15A00E45231 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67B29E0A201EC15000E45231 /* MessageUI.framework */; };
 		67B29E0D201EC16900E45231 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67B29E0C201EC16300E45231 /* SystemConfiguration.framework */; };
 		67BACAC2205221E4009E9452 /* AppDelegate+Launch.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BACAC1205221E4009E9452 /* AppDelegate+Launch.m */; };
+		67BACAC82052815C009E9452 /* HQTrackManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BACAC72052815C009E9452 /* HQTrackManager.m */; };
 		67C80F44201B1B48007ED410 /* AppDelegate+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 67C80F43201B1B48007ED410 /* AppDelegate+Log.m */; };
 		67D1D7E520172A4B00ACDA62 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D1D7E420172A4B00ACDA62 /* AppDelegate.m */; };
 		67D1D7EB20172A4B00ACDA62 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67D1D7E920172A4B00ACDA62 /* Main.storyboard */; };
@@ -152,6 +153,8 @@
 		67B29E0C201EC16300E45231 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		67BACAC0205221E4009E9452 /* AppDelegate+Launch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+Launch.h"; sourceTree = "<group>"; };
 		67BACAC1205221E4009E9452 /* AppDelegate+Launch.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Launch.m"; sourceTree = "<group>"; };
+		67BACAC62052815C009E9452 /* HQTrackManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HQTrackManager.h; sourceTree = "<group>"; };
+		67BACAC72052815C009E9452 /* HQTrackManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HQTrackManager.m; sourceTree = "<group>"; };
 		67C80F42201B1B48007ED410 /* AppDelegate+Log.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+Log.h"; sourceTree = "<group>"; };
 		67C80F43201B1B48007ED410 /* AppDelegate+Log.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Log.m"; sourceTree = "<group>"; };
 		67D1D7E020172A4B00ACDA62 /* HQBasicFrame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HQBasicFrame.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -274,6 +277,7 @@
 		6715268F203EA7B900416964 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				67BACAC420528120009E9452 /* Tools */,
 				67152690203EA7C700416964 /* Category */,
 			);
 			path = Util;
@@ -354,11 +358,21 @@
 			path = media;
 			sourceTree = "<group>";
 		};
-		67BACAB620521EB8009E9452 /* NewFuturaGuide */ = {
+		67BACAC420528120009E9452 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				67BACAC52052812D009E9452 /* TrackAnalyse */,
 			);
-			path = NewFuturaGuide;
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		67BACAC52052812D009E9452 /* TrackAnalyse */ = {
+			isa = PBXGroup;
+			children = (
+				67BACAC62052815C009E9452 /* HQTrackManager.h */,
+				67BACAC72052815C009E9452 /* HQTrackManager.m */,
+			);
+			path = TrackAnalyse;
 			sourceTree = "<group>";
 		};
 		67C80F41201B1B1E007ED410 /* HQLog */ = {
@@ -395,7 +409,6 @@
 		67D1D7E220172A4B00ACDA62 /* HQBasicFrame */ = {
 			isa = PBXGroup;
 			children = (
-				67BACAB620521EB8009E9452 /* NewFuturaGuide */,
 				6715268F203EA7B900416964 /* Util */,
 				67AB6E922019B749002FF141 /* Main */,
 				67AB6E91201996BE002FF141 /* Network */,
@@ -651,6 +664,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67BACAC82052815C009E9452 /* HQTrackManager.m in Sources */,
 				67152679203E61DD00416964 /* HQPushDetailViewController.m in Sources */,
 				67152688203E629200416964 /* HQPresentTestViewController.m in Sources */,
 				67AB6E8A20199171002FF141 /* AppDelegate+LaunchAd.m in Sources */,

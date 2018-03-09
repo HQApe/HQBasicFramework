@@ -12,7 +12,7 @@
 #import "HQPresentViewController.h"
 #import "HQToastViewController.h"
 
-@interface HQTabBarViewController ()
+@interface HQTabBarViewController ()<UITabBarControllerDelegate>
 
 @end
 
@@ -31,7 +31,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    self.delegate = self;
     [self setupAllChildViewController];
 }
 
