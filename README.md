@@ -5,7 +5,7 @@
 # 记录iOS相关问题的奇妙之处
 1. [A presentViewController:B]可能存在延时跳转，或者再次点击才跳转
 把它放在
-````
+``` OC
 dispatch_async(dispatch_get_main_queue(), ^{
 });
 ````
@@ -20,7 +20,7 @@ dispatch_async(dispatch_get_main_queue(), ^{
 NavigationController.presentingViewController = A.
 
 4. A在present多个控制器后到B，B想在一步回到A，可以用以下代码：
-````    
+``` Objective-C
 UIViewController *vc = self;
 if (!vc.presentingViewController) {
 return;
