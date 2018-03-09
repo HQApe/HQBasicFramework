@@ -8,7 +8,7 @@
 >     
 dispatch_async(dispatch_get_main_queue(), ^{
 });
->     
+     
 中执行就没有问题了，有人说是需要触发主线程才能马上跳转。
 
 2. UITabBarController或者UINavigationController的子控制器A,
@@ -29,7 +29,7 @@ while (vc.presentingViewController) {
 vc = vc.presentingViewController;
 }
 [vc dismissViewControllerAnimated:YES completion:nil];
->     
+     
 这样得到的vc是A，因此也可以想办法拿到A后执行dismissViewControllerAnimated。
 如果拿到A下一个控制器C，执行[C dismissViewControllerAnimated:YES completion:nil];
 那么C依然没有被dismiss掉。
