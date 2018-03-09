@@ -12,7 +12,7 @@ dispatch_async(dispatch_get_main_queue(), ^{
 ```
 中执行就没有问题了，有人说是需要触发主线程才能马上跳转。
 
-2. `UITabBarControlle`r或者`UINavigationController`的子控制器A,
+2. `UITabBarController`或者`UINavigationController`的子控制器A,
 `[A presentViewController:B];`
 那么`B.presentingViewController = UITabBarController`或者`UINavigationController`
 
