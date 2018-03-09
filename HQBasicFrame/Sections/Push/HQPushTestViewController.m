@@ -20,11 +20,18 @@
     self.view.backgroundColor = [UIColor purpleColor];
     UIButton *next = [[UIButton alloc] initWithFrame:CGRectMake(150, 200, 100, 50)];
     [next setTitle:@"Pop" forState:UIControlStateNormal];
-    [next addTarget:self action:@selector(next) forControlEvents:UIControlEventTouchUpInside];
+    [next addTarget:self action:@selector(nextStep) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:next];
 }
-- (void)next
+- (void)nextStep
 {
+    if (self.presentingViewController) {
+        UIViewController *vc = self;
+        while (vc.presentingViewController) {
+            vc = vc.presentingViewController;
+        }
+        [vc dismissViewControllerAnimated:YES completion:nil];
+    }
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 

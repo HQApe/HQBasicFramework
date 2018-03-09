@@ -22,7 +22,7 @@
     
     UIButton *next = [[UIButton alloc] initWithFrame:CGRectMake(150, 200, 100, 50)];
     [next setTitle:@"Present" forState:UIControlStateNormal];
-    [next addTarget:self action:@selector(next) forControlEvents:UIControlEventTouchUpInside];
+    [next addTarget:self action:@selector(nextStep) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:next];
     
     UIButton *pre = [[UIButton alloc] initWithFrame:CGRectMake(150, 300, 100, 50)];
@@ -31,7 +31,7 @@
     [self.view addSubview:pre];
 }
 
-- (void)next
+- (void)nextStep
 {
     HQPresentTestViewController *testVC = [[HQPresentTestViewController alloc] init];
     [self presentViewController:testVC animated:YES completion:^{

@@ -22,14 +22,14 @@
     
     UIButton *next = [[UIButton alloc] initWithFrame:CGRectMake(150, 200, 100, 50)];
     [next setTitle:@"Push" forState:UIControlStateNormal];
-    [next addTarget:self action:@selector(next) forControlEvents:UIControlEventTouchUpInside];
+    [next addTarget:self action:@selector(nextStep) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:next];
     if ([self.title isEqualToString:@"PopDisable"]) {
         self.rt_disableInteractivePop = YES;
     }
 }
 
-- (void)next
+- (void)nextStep
 {
     if ([self.title isEqualToString:@"PushAndRemove"]) {
         HQPushSubDetailViewController *detailVC = [[HQPushSubDetailViewController alloc] init];

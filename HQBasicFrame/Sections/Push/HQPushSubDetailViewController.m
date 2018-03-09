@@ -23,10 +23,10 @@
     
     UIButton *next = [[UIButton alloc] initWithFrame:CGRectMake(150, 200, 100, 50)];
     [next setTitle:@"Push" forState:UIControlStateNormal];
-    [next addTarget:self action:@selector(next) forControlEvents:UIControlEventTouchUpInside];
+    [next addTarget:self action:@selector(nextStep) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:next];
 }
-- (void)next
+- (void)nextStep
 {
     HQPushTestViewController *testVC = [[HQPushTestViewController alloc] init];
     testVC.title = @"testVC";

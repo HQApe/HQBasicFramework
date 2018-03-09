@@ -27,20 +27,20 @@
     UIView *shadowView = [[UIView alloc] initWithFrame:self.bounds];
     [shadowView addSubview:toast];
     
-    [self showToast:shadowView duration:1.5 position:CSToastPositionCenter completion:nil];
+    [self showToast:shadowView duration:1.0 position:CSToastPositionCenter completion:nil];
 }
 
 - (void)showMessage:(NSString *)message title:(NSString *)title image:(NSString *)imageName
 {
     [self hideAllToasts];
     
-    UIView *toast = [self toastViewForMessage:message title:nil image:nil style:nil];
+    UIView *toast = [self toastViewForMessage:message title:title image:[UIImage imageNamed:imageName] style:nil];
     toast.center = self.center;
     //添加屏蔽层
     UIView *shadowView = [[UIView alloc] initWithFrame:self.bounds];
     [shadowView addSubview:toast];
     
-    [self showToast:shadowView duration:1.5 position:CSToastPositionCenter completion:nil];
+    [self showToast:shadowView duration:1.0 position:CSToastPositionCenter completion:nil];
 }
 
 - (void)showLoadingHUD

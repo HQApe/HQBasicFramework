@@ -60,18 +60,22 @@
         {
             HQPresentDetailViewController *detailVC = [[HQPresentDetailViewController alloc] init];
             detailVC.title = @"Present";
-            [self presentViewController:detailVC animated:YES completion:^{
-                
-            }];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self presentViewController:detailVC animated:YES completion:^{
+                    
+                }];
+            });
         }
             break;
         case 1:
         {
             HQPushViewController *detailVC = [[HQPushViewController alloc] init];
             detailVC.title = @"Push";
-            [self presentViewController:[[HQNavigationController alloc] initWithRootViewController:detailVC] animated:YES completion:^{
-                
-            }];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self presentViewController:[[HQNavigationController alloc] initWithRootViewController:detailVC] animated:YES completion:^{
+                    
+                }];
+            });
         }
             break;
         default:

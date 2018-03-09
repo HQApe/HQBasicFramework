@@ -7,7 +7,7 @@
 //
 
 #import "HQPresentTestViewController.h"
-
+#import "HQTabBarViewController.h"
 @interface HQPresentTestViewController ()
 
 @end
@@ -31,16 +31,20 @@
 
 - (void)root
 {
-    UIViewController *vc = self.presentingViewController;
-    if (!vc.presentingViewController) {
-        return;
-    }
-
-    while (vc.presentingViewController) {
-        vc = vc.presentingViewController;
-    }
-
-    [vc dismissViewControllerAnimated:YES completion:nil];
+//    UIViewController *vc = self;
+//    if (!vc.presentingViewController) {
+//        return;
+//    }
+//
+//    while (vc.presentingViewController) {
+//        vc = vc.presentingViewController;
+//    }
+//
+//    [vc dismissViewControllerAnimated:YES completion:nil];
+    
+    [[HQTabBarViewController shareInstance] dismissViewControllerAnimated:YES completion:^{
+        
+    }];
 }
 
 - (void)pre
