@@ -19,6 +19,8 @@ pod 'Toast', '~> 4.0.0'
 pod 'AFNetworking'
 #Bugly奔溃记日志处理，使用腾讯后台
 pod 'Bugly'
+#用户行为统计
+pod 'QQ_MTA'
 
 #奔溃日志
 pod 'KSCrash', '~> 1.15.16', :configurations => ['Debug']
